@@ -1,0 +1,71 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "UnitConversionApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Conversion/convert": {
+      "post": {
+        "tags": [
+          "Conversion"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConversionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConversionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConversionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ConversionRequest": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "fromUnit": {
+            "type": "string",
+            "nullable": true
+          },
+          "toUnit": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Conversion"
+    }
+  ]
+}
